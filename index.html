@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #44b4ffc9; 
+            font-family: Arial, sans-serif;
+        }
+
+        .box {
+            background-color: #44b4ffc9; 
+            padding: 20px;
+            margin: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #950d0d;
+            border-radius: 5px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: rgb(255, 255, 255); 
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3; 
+        }
+
+
+        html {
+            background-color:bisque
+        }
+
+        #output5, #output6, #output7 {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h3>raise 2 to the power of each element in an array</h3>
+        <input type="text" id="task5Input" placeholder="Enter an array of numbers separated by spaces:">
+        <button onclick="calculateTask5()">calculate</button>
+        <div id="output5"></div> 
+    </div>
+
+    <div class="box">
+        <h3>determine "even" or "odd" for each number in an array</h3>
+        <input type="text" id="task6Input" placeholder="Enter an array of values separated by spaces for Task 6:">
+        <button onclick="calculateTask6()">calculate</button>
+        <div id="output6"></div> 
+    </div>
+
+    <div class="box">
+        <h3> (FizzBuzz)</h3>
+        <input type="text" id="task7Input" placeholder="Enter an array of numbers separated by spaces:">
+        <button onclick="calculateTask7()">calculate</button>
+        <div id="output7"></div>
+    </div>
+
+    <script>
+        function calculateTask5() {
+            //  5
+            const input = document.getElementById("task5Input").value;
+            const numbers = input.split(" ").map(Number);
+            const output = numbers.map(function(number) {
+                const result = Math.pow(2, number);
+                console.log(result); 
+                return result;
+            });
+            document.getElementById("output5").textContent = output;
+        }
+
+        function calculateTask6() {
+            //  6
+            const input = document.getElementById("task6Input").value;
+            const values = input.split(" ");
+            const output = values.map(function(value) {
+                const num = Number(value);
+                if (!isNaN(num)) {
+                    const result = num % 2 === 0 ? "even" : "odd";
+                    console.log(result); 
+                    return result;
+                } else {
+                    const result = "N/A";
+                    console.log(result); 
+                    return result;
+                }
+            });
+            document.getElementById("output6").textContent = output;
+        }
+
+        function calculateTask7() {
+            //  7
+            const input = document.getElementById("task7Input").value;
+            const numbers = input.split(" ").map(Number);
+            const output = numbers.map(function(number) {
+                let result;
+                if (number % 3 === 0 && number % 5 === 0) {
+                    result = "FeezBaz";
+                } else if (number % 3 === 0) {
+                    result = "Feez";
+                } else if (number % 5 === 0) {
+                    result = "Baz";
+                } else {
+                    result = number;
+                }
+                console.log(result); 
+                return result;
+            });
+            document.getElementById("output7").textContent = output;
+        }
+    </script>
+</body>
+</html>
